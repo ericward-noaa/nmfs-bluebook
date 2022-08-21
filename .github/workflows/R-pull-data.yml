@@ -1,0 +1,40 @@
+# Workflow derived from https://github.com/r-lib/actions/tree/master/examples
+# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+on:
+  schedule:
+      # * is a special character in YAML so you have to quote this string
+    - cron:  '0 0 1 1,4,7,10 *'
+  push:
+       paths:
+       - 'code/get_data.R'
+
+    #branches: [main, master]
+  #pull_request:
+    #branches: [main, master]
+
+name: R-pull-data
+
+jobs:
+  pull-data:
+    runs-on: macos-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_KEEP_PKG_SOURCE: yes
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@v1
+
+      - name: Install packages
+        run:
+          Rscript -e "install.packages(c('openxlsx','remotes','stringr','dplyr','tidyr'))"
+
+      - name: Scrape data
+        run:
+          Rscript -e "source('code/get_data.R')"
+
+      - name: Commit results
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git diff-index --quiet HEAD || (git commit -a -m'[bot] update files' --allow-empty && git push -f)
+
