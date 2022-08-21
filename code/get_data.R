@@ -118,67 +118,67 @@ url <- "https://www.pcouncil.org/documents/2020/06/ocean-salmon-fishery-effort-a
 # CA rec effort
 sheet_n <- 4
 ca_rec <- parse_data(url_name = url, sheet = sheet_n)
-saveRDS(ca_rec, "data/pfmc_ca_rec.rds")
+write.csv(ca_rec, "data/pfmc_ca_rec.csv", row.names=FALSE)
 
 # OR rec effort
 sheet_n <- 9
 or_rec <- parse_data(url_name = url, sheet = sheet_n)
-saveRDS(or_rec, "data/pfmc_or_rec.rds")
+write.csv(or_rec, "data/pfmc_or_rec.csv", row.names=FALSE)
 
 # WA rec effort
 sheet_n <- 17
 wa_rec <- parse_data(url_name = url, sheet = sheet_n)
 wa_rec$units <- "angler trips"
-saveRDS(wa_rec, "data/pfmc_wa_rec.rds")
+write.csv(wa_rec, "data/pfmc_wa_rec.csv", row.names=FALSE)
 
 # CA commercial troll
 sheet_n <- 2
 ca_troll <- parse_data(url_name = url, sheet = sheet_n)
 ca_troll$units <- "days fished"
-saveRDS(ca_troll, "data/pfmc_ca_troll_effort.rds")
+write.csv(ca_troll, "data/pfmc_ca_troll_effort.csv", row.names=FALSE)
 
 # OR commercial rroll
 sheet_n <- 7
 or_troll <- parse_data(url_name = url, sheet = sheet_n)
 or_troll$units <- "days fished"
-saveRDS(or_troll, "data/pfmc_or_troll_effort.rds")
+write.csv(or_troll, "data/pfmc_or_troll_effort.csv", row.names=FALSE)
 
 # WA commercial rroll
 sheet_n <- 12
 wa_troll <- parse_data(url_name = url, sheet = sheet_n)
 wa_troll$units <- "days fished"
-saveRDS(wa_troll, "data/pfmc_wa_troll_effort.rds")
+write.csv(wa_troll, "data/pfmc_wa_troll_effort.csv", row.names=FALSE)
 
 sheet_n <- 14
 wa_troll_indian <- parse_data(url_name = url, sheet = sheet_n)
 wa_troll_indian$units <- "deliveries"
-saveRDS(wa_troll_indian, "data/pfmc_wa_troll_indian_effort.rds")
+write.csv(wa_troll_indian, "data/pfmc_wa_troll_indian_effort.csv", row.names=FALSE)
 
 # California recreational landings
 sheet_n <- 3
 ca_troll <- parse_data(url_name = url, sheet = sheet_n)
-saveRDS(ca_troll, "data/pfmc_ca_troll_catch.rds")
+write.csv(ca_troll, "data/pfmc_ca_troll_catch.csv", row.names=FALSE)
 
 sheet_n <- 5
 ca_rec <- parse_data(url_name = url, sheet = sheet_n)
-saveRDS(ca_rec, "data/pfmc_ca_rec_catch.rds")
+write.csv(ca_rec, "data/pfmc_ca_rec_catch.csv", row.names=FALSE)
 
 sheet_n <- 8
 or_troll <- parse_data(url_name = url, sheet = sheet_n)
-saveRDS(or_troll, "data/pfmc_or_troll_catch.rds")
+write.csv(or_troll, "data/pfmc_or_troll_catch.csv", row.names=FALSE)
 
 sheet_n <- 10
 or_rec <- parse_data(url_name = url, sheet = sheet_n)
-saveRDS(or_rec, "data/pfmc_or_rec_catch.rds")
+write.csv(or_rec, "data/pfmc_or_rec_catch.csv", row.names=FALSE)
 
 sheet_n <- 13
 wa_troll <- parse_data(url_name = url, sheet = sheet_n)
-saveRDS(wa_troll, "data/pfmc_wa_troll_catch.rds")
+write.csv(wa_troll, "data/pfmc_wa_troll_catch.csv", row.names=FALSE)
 
 sheet_n <- 18
 wa_rec <- parse_data(url_name = url, sheet = sheet_n)
-saveRDS(wa_rec, "data/pfmc_wa_rec_catch.rds")
+write.csv(wa_rec, "data/pfmc_wa_rec_catch.csv", row.names=FALSE)
 
-sheet_n <- 15
+sheet_n <- 15 
 wa_tribal <- parse_data(url_name = url, sheet = sheet_n)
-saveRDS(wa_tribal, "data/pfmc_wa_troll_indian_catch.rds")
+write.csv(wa_tribal, "data/pfmc_wa_troll_indian_catch.csv", row.names=FALSE)
